@@ -109,7 +109,8 @@ at::Tensor prroi_pooling_coor_backward_cuda(
         top_count, bottom_count
     );
 
-    THCudaCheck(cudaGetLastError());
+    //THCudaCheck(cudaGetLastError());
+    C10_CUDA_CHECK(cudaGetLastError());
     return coor_diff;
 }
 
