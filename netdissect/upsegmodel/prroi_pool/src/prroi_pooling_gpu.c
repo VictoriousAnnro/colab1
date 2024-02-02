@@ -14,7 +14,9 @@
 #include <ATen/ATen.h>
 #include <ATen/cuda/CUDAContext.h>
 
-#include <THC/THC.h>
+#include <ATen/cuda/CUDAEvent.h>
+
+# #include <THC/THC.h>
 
 #include "prroi_pooling_gpu_impl.cuh"
 
