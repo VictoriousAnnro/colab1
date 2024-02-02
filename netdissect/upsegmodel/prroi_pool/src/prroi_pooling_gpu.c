@@ -30,7 +30,8 @@ at::Tensor prroi_pooling_forward_cuda(const at::Tensor &features, const at::Tens
     auto output = at::zeros({nr_rois, nr_channels, pooled_height, pooled_width}, features.options());
 
     if (output.numel() == 0) {
-        THCudaCheck(cudaGetLastError());
+        //THCudaCheck(cudaGetLastError());
+        C10_CUDA_CHECK(cudaGetLastError());
         return output;
     }
 
@@ -41,7 +42,8 @@ at::Tensor prroi_pooling_forward_cuda(const at::Tensor &features, const at::Tens
         top_count
     );
 
-    THCudaCheck(cudaGetLastError());
+    //THCudaCheck(cudaGetLastError());
+    C10_CUDA_CHECK(cudaGetLastError());
     return output;
 }
 
@@ -60,7 +62,8 @@ at::Tensor prroi_pooling_backward_cuda(
     int bottom_count = batch_size * nr_channels * height * width;
 
     if (output.numel() == 0) {
-        THCudaCheck(cudaGetLastError());
+        //THCudaCheck(cudaGetLastError());
+        C10_CUDA_CHECK(cudaGetLastError());
         return features_diff;
     }
 
@@ -73,7 +76,8 @@ at::Tensor prroi_pooling_backward_cuda(
         top_count, bottom_count
     );
 
-    THCudaCheck(cudaGetLastError());
+    //THCudaCheck(cudaGetLastError());
+    C10_CUDA_CHECK(cudaGetLastError());
     return features_diff;
 }
 
@@ -91,7 +95,8 @@ at::Tensor prroi_pooling_coor_backward_cuda(
     int bottom_count = nr_rois * 5;
 
     if (output.numel() == 0) {
-        THCudaCheck(cudaGetLastError());
+        //THCudaCheck(cudaGetLastError());
+        C10_CUDA_CHECK(cudaGetLastError());
         return coor_diff;
     }
 
