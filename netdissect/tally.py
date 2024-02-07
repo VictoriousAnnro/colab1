@@ -18,8 +18,10 @@ Underlying running statistics algorithms are implemented in the
 runningstats package.
 '''
 import torch, numpy, os
-from . import runningstats, pbar
-from .sampler import FixedSubsetSampler
+#from . import runningstats, pbar
+import runningstats, pbar
+#from .sampler import FixedSubsetSampler
+from sampler import FixedSubsetSampler
 from collections import defaultdict
 import warnings
 

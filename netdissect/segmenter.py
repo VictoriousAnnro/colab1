@@ -2,10 +2,14 @@
 
 import os, torch, numpy, json, glob
 import skimage.morphology
+#import scikit_image.morphology
 from collections import OrderedDict
-from . import upsegmodel
-from . import segmodel as segmodel_module
-from .easydict import EasyDict
+#from . import upsegmodel
+#from . import segmodel as segmodel_module
+import upsegmodel
+import segmodel as segmodel_module
+#from .easydict import EasyDict
+from easydict import EasyDict
 from urllib.request import urlretrieve
 
 class BaseSegmenter:

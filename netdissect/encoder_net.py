@@ -1,5 +1,6 @@
 import numpy, math
-from . import customnet, nethook
+#from . import customnet, nethook
+import customnet, nethook
 from collections import OrderedDict
 import torch.nn
 import re

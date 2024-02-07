@@ -1,3 +1,5 @@
+"""DELETE??"""
+
 from xml.etree import ElementTree as et
 
 def make_svg_bargraph(labels, heights, categories=None, palette=None,

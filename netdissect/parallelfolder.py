@@ -9,7 +9,8 @@ import torch.utils.data as data
 from torchvision.datasets.folder import default_loader as tv_default_loader
 from PIL import Image
 from collections import OrderedDict
-from . import pbar
+#from . import pbar
+import pbar
 
 def grayscale_loader(path):
     with open(path, 'rb') as f:

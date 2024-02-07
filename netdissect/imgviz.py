@@ -1,5 +1,6 @@
 import PIL, torch
-from . import upsample, renormalize, segviz, tally
+#from . import upsample, renormalize, segviz, tally
+import upsample, renormalize, segviz, tally
 from matplotlib import cm
 
 class ImageVisualizer:
