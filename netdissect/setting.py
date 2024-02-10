@@ -1,8 +1,8 @@
 import torch, torchvision, os, collections
-#from . import parallelfolder, zdataset, renormalize, encoder_net, segmenter
-import parallelfolder, zdataset, renormalize, encoder_net, segmenter
-#from . import bargraph
-import bargraph
+from . import parallelfolder, zdataset, renormalize, encoder_net, segmenter
+#import parallelfolder, zdataset, renormalize, encoder_net, segmenter
+from . import bargraph
+#import bargraph
 
 def load_proggan(domain):
     # Automatically download and cache progressive GAN model
