@@ -135,6 +135,15 @@ class UnifiedParsingSegmenter(BaseSegmenter):
         segvocab = 'upp'
         segarch = ('resnet50', 'upernet')
         epoch = 40
+        #------
+        #print(torch.cuda.is_available())
+        print(torch.__version__)
+        print(torch.version.cuda)
+        print(f"Torch - Cuda is available? {torch.cuda.is_available()}")
+        import os
+        print(os.environ.get('CUDA_PATH'))
+        #print(torch.zeros(1).cuda())
+        #------
         ensure_segmenter_downloaded('datasets/segmodel', 'upp')
         segmodel = load_unified_parsing_segmentation_model(
                 segarch, segvocab, epoch)
