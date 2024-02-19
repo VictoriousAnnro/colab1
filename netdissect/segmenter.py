@@ -136,7 +136,6 @@ class UnifiedParsingSegmenter(BaseSegmenter):
         segarch = ('resnet50', 'upernet')
         epoch = 40
         #------
-        #print(torch.cuda.is_available())
         print(torch.__version__)
         print(torch.version.cuda)
         print(f"Torch - Cuda is available? {torch.cuda.is_available()}")
@@ -335,7 +334,8 @@ class UnifiedParsingSegmenter(BaseSegmenter):
             else:
                 mask = torch.max(mask, mask2)
             result = result + (part_pred[i][:, local_index])
-        assert result is not 0, 'unrecognized class %d' % classnum
+        #assert result is not 0, 'unrecognized class %d' % classnum
+        assert result != 0, 'unrecognized class %d' % classnum
         return result, mask
 
     def expand_segment_quad(self, segs, segdiv='quad'):
