@@ -18,17 +18,19 @@ RUN pip3 install IPython
 
 RUN pip3 install Ninja
 
-WORKDIR  /usr/app/src
+# Create a working directory.
+RUN mkdir /app
+WORKDIR /app
+
 COPY ./netdissect ./netdissect
-COPY kopi_af_gandissect_solutions1.py ./
-#COPY test.py ./
 
 # Set the default command to python3.
-#CMD ["python3", "./test.py"] 
-CMD ["python3", "./kopi_af_gandissect_solutions1.py", "./netdissect"]
+#CMD ["python3", "./kopi_af_gandissect_solutions1.py", "./netdissect"]
+CMD ["python3", "./netdissect"]
 
-#in command prompt:
-#docker run --rm --gpus=all colab1
+#in command prompt (Open wsl! Did not work in Command Prompt for me):
+#docker run --rm --gpus=all -it --init --volume="$PWD:/app" colab1 python3 kopi_af_gandissect_solutions1.py
+
 #above will run kopi_af_gandissect_solutions1.py
 # the above command creates a container and runs the script,
 # but '--rm' ensures that the container is deleted when done running
